@@ -2,6 +2,8 @@ class OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
+    puts @order.line_items, "display the array"
+    puts @order.line_items[0].product, "display one item of array"
   end
 
   def create
@@ -51,6 +53,8 @@ class OrdersController < ApplicationController
           total_price: product.price * quantity
         )
       end
+         # order.line_items << product
+         #  item.cart_id = nil
     end
     order.save!
     order

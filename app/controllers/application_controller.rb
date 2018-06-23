@@ -27,5 +27,7 @@ class ApplicationController < ActionController::Base
     }
     cookies[:cart]
   end
-
+# def update_order
+# cookies[:order]=cookies[:cart]
+# end
 end
