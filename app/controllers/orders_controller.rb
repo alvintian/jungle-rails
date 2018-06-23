@@ -2,8 +2,6 @@ class OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
-    puts @order.line_items, "display the array"
-    puts @order.line_items[0].product, "display one item of array"
   end
 
   def create
@@ -11,7 +9,10 @@ class OrdersController < ApplicationController
     order  = create_order(charge)
 
     if order.valid?
+        UserMailer.welcome_email(current_user,cart,order).deliver_now 
       empty_cart!
+         # Tell the UserMailer to send a welcome email after save
+        # format.json { render json: @user, status: :created, location: @user }
       redirect_to order, notice: 'Your Order has been placed.'
     else
       redirect_to cart_path, flash: { error: order.errors.full_messages.first }

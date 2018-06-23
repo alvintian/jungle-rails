@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to example.com, <%= @receipent.firstname %></h1>
+    <p>
+  You have successfully ordered from localhost.
+      <h1>Order #<%= @orders.id %></h1>
+    </p>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th colspan="2">Product</th>
+          <th>Unit Price</th>
+          <th>Quantity</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @cart_total = 0 %>
+        <% @carts.each do |product_id, details| %>
+          <%= render 'item', product_id: product_id, details: details %>
+        <% end %>
+      </tbody>
+      <tfootc>
+        <tr>
+          <th colspan="4">
+            TOTAL:
+          </th>
+          <th>
+            <%= @cart_total %>
+          </th>
+        </tr>
+      </tfoot>
+    </table>
+
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
