@@ -1,0 +1,12 @@
+<% if review = Review.find_by(product_id: product_id) %>
+
+<% if user=User.find_by(id: user_id)%>
+    <dt>User:</dt>
+    <dd><%= user.firstname %></dd>
+<% end %>
+    <dt>Rating:</dt>
+    <dd><%= rating %></dd>
+    <dt>Review:</dt>
+    <dd><%= description %></dd>
+    <br>
+<% end %>

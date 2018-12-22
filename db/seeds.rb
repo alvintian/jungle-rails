@@ -131,6 +131,38 @@ cat3.products.create!({
   quantity: 0,
   price: 2_483.75
 })
-
-
+firstProduct = Product.find(1);
+User.create({
+    firstname: Faker::Name.first_name,
+    lastname: Faker::Name.last_name,
+    email: Faker::Internet.email,
+    password_digest: Faker::Internet.password
+})
+User.create({
+     firstname: Faker::Name.first_name,
+    lastname: Faker::Name.last_name,
+    email: Faker::Internet.email,
+    password_digest: Faker::Internet.password
+})
+firstProduct.reviews.create!({
+  user_id: 2,
+  description: Faker::Hipster.paragraph(2),
+  rating: 3
+})
+firstProduct.reviews.create!({
+  user_id: 1,
+  description: "Faker::Hipster.paragraph(test)",
+  rating: 5
+})
+firstProduct.reviews.create!({
+  user_id: 2,
+  description: "Faker::Hipster.paragraph(1)",
+  rating: 3
+})
+firstProduct.reviews.create!({
+  rating: 1
+})
+Product.find(2).reviews.create!({
+  description: Faker::Hipster.paragraph(2)
+})
 puts "DONE!"
