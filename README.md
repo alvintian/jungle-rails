@@ -23,8 +23,7 @@ in there replace the ?? with yours.
 Use Credit Card # 4111 1111 1111 1111 for testing success scenarios.
 
 More information in their docs: <https://stripe.com/docs/testing#cards>
-
-screenshot:
+## Screenshot:
 <img src="screenshot/one.png" height='500px'>
 <img src="screenshot/two.png" height='500px'>
 <img src="screenshot/three.png" height='500px'>
